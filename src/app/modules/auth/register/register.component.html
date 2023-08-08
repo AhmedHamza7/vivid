@@ -1,1 +1,27 @@
-<p>register works!</p>
+<div class="login-container">
+    <div class="row">
+        <div class="col-md-7 image-container">
+            <img src="../../../../assets/images/login.jpg" class="w-100" alt="" srcset="">
+        </div>
+        <div class="col-md-5 form-container">
+            <div class="row">
+                <div class="title col-md-12 text-center text-white">
+                    <h1>
+                        VIVID
+                    </h1>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <form id="register-form" class="register-form" [formGroup]="registerForm" >
+                        <input name="username" required="" placeholder="Username" type="text">
+                        <input required="" placeholder="Password" type="password">
+                        <input name="name" required="" placeholder="name" type="text">
+                        <input required="" placeholder="E-mail" type="email">
+                        <button class="button_submit">Register</button>
+                    </form>
+                </div>
+                <p class="signin text-center my-3 ">already have an account ? <a routerLink="/login">Sign in</a> </p>
+
+            </div>
+        </div>
+    </div>
+</div>
