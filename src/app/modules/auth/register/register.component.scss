@@ -1,3 +1,18 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .mat-form-field-appearance-legacy {
+    .mat-form-field-underline {
+        background-color: white !important;
+    }
+} 
 .login-container {
     min-height: 100vh;
     max-height: 100vh;
@@ -21,16 +36,17 @@
             flex-direction: column;
             width: 300px;
             transition: 0.3s;
+
             input {
-                height: 54px;
-                border-radius: 5px;
-                background: white;
-                margin-bottom: 15px;
-                border: none;
-                padding: 0 20px;
-                font-weight: 300;
-                font-size: 14px;
-                color: #4B4B4B;
+                // height: 54px;
+                // border-radius: 5px;
+                // background: white;
+                // margin-bottom: 15px;
+                // border: none;
+                // padding: 0 20px;
+                // font-weight: 300;
+                // font-size: 14px;
+                color: white;
             }
             .button_submit {
                 width: 100%;

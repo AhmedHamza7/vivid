@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-md-12 d-flex justify-content-center">
                     <form id="register-form" class="register-form" [formGroup]="registerForm" >
-                        <input 
+                        <!-- <input 
                         placeholder="Username" 
                         type="text"
                         formControlName="username"
@@ -31,8 +31,18 @@
                         placeholder="E-mail" 
                         type="email"
                         formControlName="email"
-                        >
-                        <button class="button_submit" (click)="signUp()">Register</button>
+                        > -->
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input type="text" matInput formControlName="username" placeholder="Ex. pat@example.com">
+                            <mat-error *ngIf="registerFormControl['username'].touched">
+                              Please enter a valid email address
+                            </mat-error>
+                            <mat-error *ngIf="registerForm?.get('username')?.hasError('required')">
+                              Email is <strong>require</strong>
+                            </mat-error>
+                          </mat-form-field>
+                        <!-- <button class="button_submit" (click)="signUp()">Register</button> -->
                     </form>
                 </div>
                 <p class="signin text-center my-3 ">already have an account ? <a routerLink="/login">Sign in</a> </p>

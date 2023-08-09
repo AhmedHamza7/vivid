@@ -26,6 +26,10 @@ export class RegisterComponent implements OnInit{
         email : ['', Validators.required],
       })
     }
+    get registerFormControl() {
+      return this.registerForm.controls;
+    }
+
     signUp() {
       this.AuthService.register(this.registerForm.value).subscribe({
         next: (res)=> console.log(res)

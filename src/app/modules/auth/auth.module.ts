@@ -6,6 +6,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     AuthRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    
   ]
 })
 export class AuthModule { }
