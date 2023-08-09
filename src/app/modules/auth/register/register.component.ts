@@ -17,8 +17,6 @@ export class RegisterComponent implements OnInit{
 
     ngOnInit(): void {
       this.initRegisterForm();
-      console.log(this.registerForm.controls);
-      
     }
     initRegisterForm(): void {
       this.registerForm = this.fb.group({
@@ -28,7 +26,9 @@ export class RegisterComponent implements OnInit{
         email : ['', Validators.required],
       })
     }
-  // signUp() {
-  //   this.AuthService.register()
-  // }
+    signUp() {
+      this.AuthService.register(this.registerForm.value).subscribe({
+        next: (res)=> console.log(res)
+      })
+    }
  }
