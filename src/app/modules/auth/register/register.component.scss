@@ -1,18 +1,28 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
-  .mat-form-field-appearance-legacy {
-    .mat-form-field-underline {
-        background-color: white !important;
+
+mat-form-field {
+    * {
+        color:white !important;
     }
-} 
+}
+
+.mat-form-field-underline {
+    background-color: white !important;
+}
+.mat-form-field-ripple {
+    background-color: white !important;
+}
+.mat-stroked-button {
+    background-color:white !important;
+    transition: all 0.4;
+    &:hover {
+        background-color:#DFECFF !important;
+        -webkit-transition: background-color 500ms linear;
+        -ms-transition: background-color 500ms linear;
+        transition: background-color 500ms linear;
+    }
+}
+
 .login-container {
     min-height: 100vh;
     max-height: 100vh;
@@ -30,39 +40,31 @@
         justify-content: center;
         min-height: 100vh;
         max-height: 100vh;
-        .register-form {
-            margin-top: 36px;
-            display: flex;
-            flex-direction: column;
-            width: 300px;
-            transition: 0.3s;
-
-            input {
-                // height: 54px;
-                // border-radius: 5px;
-                // background: white;
-                // margin-bottom: 15px;
-                // border: none;
-                // padding: 0 20px;
-                // font-weight: 300;
-                // font-size: 14px;
-                color: white;
+        .form-content {
+            border: 0.5px solid white;
+            padding: 100px 80px;
+            .register-form {
+                margin-top: 36px;
+                display: flex;
+                flex-direction: column;
+                width: 350px;
+                transition: 0.3s;
+                .button_submit {
+                    width: 100%;
+                    height: 54px;
+                    font-size: 14px;
+                    color: white;
+                    background: red;
+                    border-radius: 5px;
+                    border: none;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
             }
-            .button_submit {
-                width: 100%;
-                height: 54px;
-                font-size: 14px;
-                color: white;
-                background: red;
-                border-radius: 5px;
-                border: none;
-                font-weight: 500;
-                text-transform: uppercase;
-            }
-        }
-        .signin {
-            a {
-                color: white;
+            .signin {
+                a {
+                    color: white;
+                }
             }
         }
     }
