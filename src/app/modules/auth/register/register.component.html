@@ -32,17 +32,39 @@
                         type="email"
                         formControlName="email"
                         > -->
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Email</mat-label>
-                            <input type="text" matInput formControlName="username" placeholder="Ex. pat@example.com">
-                            <mat-error *ngIf="registerFormControl['username'].touched">
-                              Please enter a valid email address
+                        <mat-form-field class="example-full-width text-white mb-2">
+                            <mat-label class="text-white">Username</mat-label>
+                            <input type="text" matInput formControlName="username">
+                            <mat-error class="text-white" *ngIf="registerFormControl['username'].errors?.['required']">
+                              - Username is <strong>require</strong>
                             </mat-error>
-                            <mat-error *ngIf="registerForm?.get('username')?.hasError('required')">
-                              Email is <strong>require</strong>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width text-white mb-2">
+                            <mat-label class="text-white">Password</mat-label>
+                            <input type="password" matInput formControlName="password">
+                            <mat-error class="text-white" *ngIf="registerFormControl['password'].errors?.['required']">
+                              - Password is <strong>require</strong>
                             </mat-error>
-                          </mat-form-field>
-                        <!-- <button class="button_submit" (click)="signUp()">Register</button> -->
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width text-white mb-2">
+                            <mat-label class="text-white">Name</mat-label>
+                            <input type="text" matInput formControlName="name">
+                            <mat-error class="text-white" *ngIf="registerFormControl['name'].errors?.['required']">
+                              - Name is <strong>require</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width text-white mb-2">
+                            <mat-label class="text-white">Email</mat-label>
+                            <input type="email" matInput formControlName="email">
+                            <mat-error class="text-white"  *ngIf="registerFormControl['email'].errors?.['email']">
+                              - Please enter a valid email address
+                            </mat-error>
+                            <mat-error class="text-white"  *ngIf="registerFormControl['email'].errors?.['required']">
+                              - Email is <strong>require</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- <button class="button_submit mt-4" (click)="signUp()">Register</button> -->
+                        <button mat-flat-button class="button_submit mt-4" (click)="signUp()">Register</button>
                     </form>
                 </div>
                 <p class="signin text-center my-3 ">already have an account ? <a routerLink="/login">Sign in</a> </p>
