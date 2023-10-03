@@ -2,18 +2,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../../../core/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { CommonService } from 'src/app/core/services/common.service';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit{
   registerForm: FormGroup =  new FormGroup({})
+  RegisterUserData:any
+  userToken:any
   constructor(
     private AuthService:AuthService,
     private fb:FormBuilder,
-    private toastr:ToastrService
+    private toastr:ToastrService,
+    private commonService:CommonService
     ){}
 
     ngOnInit(): void {
@@ -35,13 +40,15 @@ export class RegisterComponent implements OnInit{
 
     signUp() {
       this.AuthService.register(this.registerForm.value).subscribe({
-        next: (res:any)=> {
-          this.toastr.success(res.message)
-          
+        next: (res)=> {
+          console.log(res);
+          this.RegisterUserData = res.user
+          this.userToken = res.token
+          this.commonService.fireSuccessToastr("successfully registered", 'Success')
         },
-        error: (err:any)=> {
-          this.toastr.error(err['message'], 'error')
+        error: (err) => {
+          this.commonService.fireErrorToastr(err.error.message, 'Error')
         }
       })
     }
- }
+}
