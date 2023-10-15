@@ -12,4 +12,8 @@ export class AuthService {
   register(registerData:FormData):Observable<any> {
     return this.http.post('https://tarmeezacademy.com/api/v1/register', registerData )
   }
+
+  login(loginData:FormData):Observable<any> {
+    return this.http.post('https://tarmeezacademy.com/api/v1/register', loginData )
+  }
 }

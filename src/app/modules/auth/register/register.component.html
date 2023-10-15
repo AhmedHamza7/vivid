@@ -12,27 +12,6 @@
                 </div>
                 <div class=" d-flex justify-content-center">
                     <form id="register-form" class="register-form" [formGroup]="registerForm" >
-<<<<<<< HEAD
-                        <!-- <input 
-                        placeholder="Username" 
-                        type="text"
-                        formControlName="username"
-                        >
-                        <input 
-                        placeholder="Password" 
-                        type="password"
-                        formControlName="password"
-                        >
-                        <input
-                        placeholder="name" 
-                        type="text"
-                        formControlName="name"
-                        >
-                        <input
-                        placeholder="E-mail" 
-                        type="email"
-                        formControlName="email"
-                        > -->
                         <mat-form-field class="example-full-width text-white mb-2">
                             <mat-label class="text-white">Username</mat-label>
                             <input type="text" matInput formControlName="username">
@@ -42,7 +21,11 @@
                         </mat-form-field>
                         <mat-form-field class="example-full-width text-white mb-2">
                             <mat-label class="text-white">Password</mat-label>
-                            <input type="password" matInput formControlName="password">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <input [type]="showPass ? 'text' : 'password'" matInput formControlName="password">
+                                <i *ngIf="showPass" class="fa-solid fa-eye me-2" (click)="DisplayPassword('hide')"></i>
+                                <i *ngIf="!showPass" class="fa-solid fa-eye-slash me-2" (click)="DisplayPassword('show')"></i>
+                            </div>
                             <mat-error class="text-white" *ngIf="registerFormControl['password'].errors?.['required']">
                               - Password is <strong>require</strong>
                             </mat-error>
@@ -66,43 +49,6 @@
                         </mat-form-field>
                         <!-- <button class="button_submit mt-4" (click)="signUp()">Register</button> -->
                         <button mat-flat-button class="button_submit mt-4" (click)="signUp()">Register</button>
-=======
-                        <mat-form-field class="example-full-width mb-2">
-                            <mat-label>Username</mat-label>
-                            <input type="text" matInput formControlName="username">
-                            <mat-error *ngIf="registerFormControl['username'].touched && registerFormControl['username']?.hasError('required')">
-                                Username is <strong>require</strong>
-                            </mat-error>
-                        </mat-form-field>
-
-                        <mat-form-field class="example-full-width mb-2">
-                            <mat-label>Password</mat-label>
-                            <input type="password" matInput formControlName="password">
-                            <mat-error *ngIf="registerFormControl['password'].touched && registerFormControl['password']?.hasError('required')">
-                                Password is <strong>require</strong>
-                            </mat-error>
-                        </mat-form-field>
-
-                        <mat-form-field class="example-full-width mb-2">
-                            <mat-label>Name</mat-label>
-                            <input type="text" matInput formControlName="name">
-                            <mat-error *ngIf="registerFormControl['name'].touched && registerFormControl['name']?.hasError('required')">
-                                Name is <strong>require</strong>
-                            </mat-error>
-                        </mat-form-field>
-
-                        <mat-form-field class="example-full-width mb-2">
-                            <mat-label>Email</mat-label>
-                            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
-                            <mat-error *ngIf="registerFormControl['email'].touched && registerFormControl['email']?.hasError('email')">
-                              Please enter a valid email address
-                            </mat-error>
-                            <mat-error *ngIf="registerFormControl['email'].touched && registerFormControl['email']?.hasError('required')">
-                              Email is <strong>require</strong>
-                            </mat-error>
-                        </mat-form-field>
-                        <button mat-stroked-button (click)="signUp()">Register</button>
->>>>>>> main
                     </form>
                 </div>
                 <p class="signin text-center my-3 ">already have an account ? <a routerLink="/login">Sign in</a> </p>
