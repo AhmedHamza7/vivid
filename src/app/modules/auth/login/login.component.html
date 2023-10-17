@@ -1,20 +1,37 @@
 <div class="login-container">
     <div class="row">
-        <div class="col-md-7 image-container">
+        <div class="col-xl-7 col-lg-6 image-container">
             <img src="../../../../assets/images/login.jpg" class="w-100" alt="" srcset="">
         </div>
-        <div class="col-md-5 form-container">
-            <div class="row">
+        <div class="col-xl-5 col-lg-6 form-container">
+            <div class="form-content">
                 <div class="title col-md-12 text-center text-white">
                     <h1>
                         VIVID
                     </h1>
                 </div>
-                <div class="col-md-12 d-flex justify-content-center">
-                    <form id="consultation-form" class="feed-form" action="#">
-                        <input name="username" required="" placeholder="Username" type="text">
-                        <input required="" placeholder="Password" type="password">
-                        <button class="button_submit">Login</button>
+                <div class=" d-flex justify-content-center">
+                    <form id="register-form" class="register-form" [formGroup]="loginForm" >
+                        <mat-form-field class="example-full-width text-white mb-2">
+                            <mat-label class="text-white">Username</mat-label>
+                            <input type="text" matInput formControlName="username">
+                            <mat-error class="text-white" *ngIf="registerFormControl['username'].errors?.['required']">
+                              - Username is <strong>require</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width text-white mb-2">
+                            <mat-label class="text-white">Password</mat-label>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <input [type]="showPass ? 'text' : 'password'" matInput formControlName="password">
+                                <i *ngIf="showPass" class="fa-solid fa-eye me-2" (click)="DisplayPassword('hide')"></i>
+                                <i *ngIf="!showPass" class="fa-solid fa-eye-slash me-2" (click)="DisplayPassword('show')"></i>
+                            </div>
+                            <mat-error class="text-white" *ngIf="registerFormControl['password'].errors?.['required']">
+                              - Password is <strong>require</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- <button class="button_submit mt-4" (click)="signUp()">Register</button> -->
+                        <button mat-flat-button class="button_submit mt-4" (click)="login()">Login</button>
                     </form>
                 </div>
                 <p class="signin text-center my-3 ">Don't have an account ? <a routerLink="/register">Register</a> </p>

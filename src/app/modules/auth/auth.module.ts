@@ -23,8 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule,
-
+    MatButtonModule
   ]
 })
 export class AuthModule { }
