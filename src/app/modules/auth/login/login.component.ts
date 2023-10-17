@@ -38,7 +38,7 @@ export class LoginComponent {
       return this.loginForm.controls;
     }
 
-    signUp() {
+    login() {
       this.AuthService.login(this.loginForm.value).subscribe({
         next: (res)=> {
           // this.RegisterUserData = res.user

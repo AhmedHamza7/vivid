@@ -14,6 +14,6 @@ export class AuthService {
   }
 
   login(loginData:FormData):Observable<any> {
-    return this.http.post('https://tarmeezacademy.com/api/v1/register', loginData )
+    return this.http.post('https://tarmeezacademy.com/api/v1/login', loginData )
   }
 }
